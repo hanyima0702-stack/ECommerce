@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Secure Checkout</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@200..800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "primary": "#137fec",
+              "background-light": "#f6f7f8",
+              "background-dark": "#101922",
+            },
+            fontFamily: {
+              "display": ["Manrope", "sans-serif"]
+            },
+            borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px"},
+          },
+        },
+      }
+    </script>
+</head>
+<body class="font-display bg-background-light dark:bg-background-dark text-[#111418] dark:text-gray-200">
+<div class="relative flex min-h-screen w-full flex-col bg-background-light dark:bg-background-dark group/design-root" style='font-family: Manrope, "Noto Sans", sans-serif;'>
+<header class="flex items-center justify-between whitespace-nowrap border-b border-solid border-gray-200 dark:border-gray-700 px-6 sm:px-10 lg:px-20 py-4 bg-white dark:bg-background-dark">
+<div class="flex items-center gap-4 text-gray-900 dark:text-white">
+<span class="material-symbols-outlined text-3xl text-primary">security</span>
+<h2 class="text-xl font-bold tracking-tight">安全结账</h2>
+</div>
+<button class="flex cursor-pointer items-center justify-center overflow-hidden rounded-lg h-10 gap-2 text-sm font-bold min-w-0 px-3 border border-gray-200 dark:border-gray-700 hover:bg-gray-100 dark:hover:bg-gray-800">
+<span class="material-symbols-outlined text-base">help_outline</span>
+<span>帮助中心</span>
+</button>
+</header>
+<main class="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 lg:py-12">
+<div class="flex flex-col lg:flex-row lg:gap-12">
+<!-- Left Column: Checkout Steps -->
+<div class="w-full lg:w-2/3">
+<div class="mb-8">
+<div class="flex items-center space-x-2 text-sm text-[#617589] dark:text-gray-400">
+<a class="font-medium text-primary" href="#">配送</a>
+<span class="material-symbols-outlined text-lg">chevron_right</span>
+<span class="font-medium text-[#111418] dark:text-white">付款</span>
+<span class="material-symbols-outlined text-lg">chevron_right</span>
+<a class="hover:text-primary" href="#">确认</a>
+</div>
+</div>
+<div class="mb-8">
+<p class="text-[#111418] dark:text-white text-3xl lg:text-4xl font-black leading-tight tracking-[-0.033em]">完成您的订单</p>
+<p class="text-[#617589] dark:text-gray-400 text-base font-normal leading-normal mt-2">请填写以下详细信息以完成您的购买。</p>
+</div>
+<div class="flex flex-col gap-4">
+<!-- Shipping Information Accordion -->
+<details class="flex flex-col rounded-lg border border-[#dbe0e6] dark:border-gray-700 bg-white dark:bg-gray-900 px-4 py-2 group" open="">
+<summary class="flex cursor-pointer list-none items-center justify-between gap-6 py-2">
+<p class="text-[#111418] dark:text-white text-lg font-bold">1. 配送信息</p>
+<div class="flex items-center gap-2">
+<span class="text-green-600 dark:text-green-500 text-sm font-medium">已完成</span>
+<span class="material-symbols-outlined text-[#111418] dark:text-white group-open:rotate-180 transition-transform">expand_more</span>
+</div>
+</summary>
+<div class="text-[#617589] dark:text-gray-400 text-sm font-normal leading-normal pb-2 pt-2 border-t border-gray-200 dark:border-gray-700">
+                                John Doe<br/>
+                                123 Maple Street, Anytown, CA 12345<br/>
+                                United States
+                            </div>
+</details>
+<!-- Shipping Method Accordion -->
+<details class="flex flex-col rounded-lg border border-[#dbe0e6] dark:border-gray-700 bg-white dark:bg-gray-900 px-4 py-2 group" open="">
+<summary class="flex cursor-pointer list-none items-center justify-between gap-6 py-2">
+<p class="text-[#111418] dark:text-white text-lg font-bold">2. 运输方式</p>
+<span class="material-symbols-outlined text-[#111418] dark:text-white group-open:rotate-180 transition-transform">expand_more</span>
+</summary>
+<div class="pt-4 pb-2 border-t border-gray-200 dark:border-gray-700">
+<div class="space-y-4">
+<label class="flex items-center p-4 rounded-lg border border-primary dark:border-primary bg-primary/10 dark:bg-primary/20 cursor-pointer">
+<input checked="" class="h-4 w-4 text-primary focus:ring-primary border-gray-300 dark:border-gray-600 dark:bg-gray-800" name="shipping" type="radio"/>
+<span class="ml-3 flex flex-col">
+<span class="font-medium text-[#111418] dark:text-white">标准快递</span>
+<span class="text-sm text-[#617589] dark:text-gray-400">预计 5-7 个工作日送达</span>
+</span>
+<span class="ml-auto font-medium text-[#111418] dark:text-white">¥15.00</span>
+</label>
+<label class="flex items-center p-4 rounded-lg border border-gray-300 dark:border-gray-700 hover:border-primary dark:hover:border-primary cursor-pointer">
+<input class="h-4 w-4 text-primary focus:ring-primary border-gray-300 dark:border-gray-600 dark:bg-gray-800" name="shipping" type="radio"/>
+<span class="ml-3 flex flex-col">
+<span class="font-medium text-[#111418] dark:text-white">加急快递</span>
+<span class="text-sm text-[#617589] dark:text-gray-400">预计 1-2 个工作日送达</span>
+</span>
+<span class="ml-auto font-medium text-[#111418] dark:text-white">¥30.00</span>
+</label>
+</div>
+</div>
+</details>
+<!-- Payment Details Accordion -->
+<details class="flex flex-col rounded-lg border border-primary dark:border-primary bg-white dark:bg-gray-900 px-4 py-2 group" open="">
+<summary class="flex cursor-pointer list-none items-center justify-between gap-6 py-2">
+<p class="text-[#111418] dark:text-white text-lg font-bold">3. 付款详情</p>
+<span class="material-symbols-outlined text-[#111418] dark:text-white group-open:rotate-180 transition-transform">expand_more</span>
+</summary>
+<div class="pt-4 pb-2 border-t border-gray-200 dark:border-gray-700 space-y-4">
+<div class="flex items-center gap-2">
+<p class="text-sm text-[#617589] dark:text-gray-400">我们接受:</p>
+<div class="flex items-center gap-2">
+<img class="h-6" data-alt="Visa logo" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBSw-g-LmuE-2MgJoOVzDYLxcCfpGN1_BGJpOcDV16G4AARm6JlwCpMLDk4I8hfIe8IH7dAqKsubBBfF7y8PnUP2lcRunkniU2KoeSL4bz_2HwA_oY6pSKLvKrotbJdYSsG899V6YY1BEpthYzmjhlHDyM27DMTYufOwTSwpMwU5I_51qH2viWEo5sJ4Z7YszoDunSKYVL7Ozl2nK5AiXwlQcCVycwpNI2ws5oVpVsZX_jorMPCuu3INCcc1_7Ts51s76S9pyFfLLZs"/>
+<img class="h-6" data-alt="Mastercard logo" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDhEngImbQqeJ-TkVau3Pyl6-oUNbUlruW4K_8089I-THO97TYh3X-5pE-JGFGs9SVS9-9QkkC7FJeqqHDpYTJd-zzazjVVZXIYIHuHht5UXmizxitvTvNiKkO9lHWJ7k9mD7ga9DKjr4GkQ5mbqv6h36fLrWnbnkP8FoG_lq24pfNbj6EwuSbkRhBqQ37IstJAipptArbusywy3wCKV6qNEvKyo4X4BNIERksuNX4-DRKDPo2XU-i8tAil2qClD0kFAQRppi132QCI"/>
+<img class="h-6" data-alt="PayPal logo" src="https://lh3.googleusercontent.com/aida-public/AB6AXuD9O3KztOSpCojiocX6wxUfa3SOUXm8s0BY5CYM4AP8HlULVxzi0pPrcLr2Fc4u24qO9Tnw5qMP8z_I93JM-qU4D98aZEx1n-06XZuK_hM_sB_wCYANxMOXIe_OJjiVjm7uF_3eQ968skfssMWY3TqgV_uuAlwNMtsGMzLQBmDvIk5OVVaMIyOmtPx4gFrar6-QldZsKpBfOA1UDGq8-5UFlCyEcnj27ZWk7M6YOiMGw8ntsvGKj0xe6lsWewoaQMUA0jg9KSvr2jOG"/>
+</div>
+</div>
+<div class="grid grid-cols-1 gap-4">
+<label class="flex flex-col">
+<p class="text-[#111418] dark:text-white text-sm font-medium leading-normal pb-2">持卡人姓名</p>
+<input class="form-input flex w-full min-w-0 flex-1 resize-none overflow-hidden rounded-lg text-[#111418] dark:text-white focus:outline-0 focus:ring-2 focus:ring-primary border border-[#dbe0e6] dark:border-gray-700 bg-white dark:bg-gray-800 focus:border-primary dark:focus:border-primary h-12 placeholder:text-[#617589] dark:placeholder:text-gray-500 p-3 text-base font-normal leading-normal" placeholder="输入卡上的姓名" value=""/>
+</label>
+<label class="flex flex-col">
+<p class="text-[#111418] dark:text-white text-sm font-medium leading-normal pb-2">卡号</p>
+<div class="relative">
+<input class="form-input flex w-full min-w-0 flex-1 resize-none overflow-hidden rounded-lg text-[#111418] dark:text-white focus:outline-0 focus:ring-2 focus:ring-primary border border-[#dbe0e6] dark:border-gray-700 bg-white dark:bg-gray-800 focus:border-primary dark:focus:border-primary h-12 placeholder:text-[#617589] dark:placeholder:text-gray-500 p-3 pl-10 text-base font-normal leading-normal" placeholder="0000 0000 0000 0000" value=""/>
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-gray-400">credit_card</span>
+</div>
+</label>
+<div class="grid grid-cols-2 gap-4">
+<label class="flex flex-col">
+<p class="text-[#111418] dark:text-white text-sm font-medium leading-normal pb-2">有效期</p>
+<input class="form-input flex w-full min-w-0 flex-1 resize-none overflow-hidden rounded-lg text-[#111418] dark:text-white focus:outline-0 focus:ring-2 focus:ring-primary border border-[#dbe0e6] dark:border-gray-700 bg-white dark:bg-gray-800 focus:border-primary dark:focus:border-primary h-12 placeholder:text-[#617589] dark:placeholder:text-gray-500 p-3 text-base font-normal leading-normal" placeholder="MM / YY" value=""/>
+</label>
+<label class="flex flex-col">
+<div class="flex items-center gap-2 pb-2">
+<p class="text-[#111418] dark:text-white text-sm font-medium leading-normal">安全码 (CVV)</p>
+<span class="material-symbols-outlined text-base text-gray-400 cursor-help" title="您的卡背面三位数的安全码">help_outline</span>
+</div>
+<input class="form-input flex w-full min-w-0 flex-1 resize-none overflow-hidden rounded-lg text-[#111418] dark:text-white focus:outline-0 focus:ring-2 focus:ring-primary border border-red-500 dark:border-red-500 bg-white dark:bg-gray-800 h-12 placeholder:text-[#617589] dark:placeholder:text-gray-500 p-3 text-base font-normal leading-normal" placeholder="123" value=""/>
+<p class="text-red-600 text-xs mt-1">请输入有效的安全码</p>
+</label>
+</div>
+</div>
+<div class="flex items-start">
+<input class="h-4 w-4 rounded border-gray-300 text-primary focus:ring-primary mt-0.5" id="save-card" type="checkbox"/>
+<label class="ml-2 text-sm text-[#617589] dark:text-gray-400" for="save-card">保存此卡信息以便下次使用</label>
+</div>
+</div>
+</details>
+</div>
+</div>
+<!-- Right Column: Order Summary -->
+<div class="w-full lg:w-1/3 mt-8 lg:mt-0">
+<div class="sticky top-8 space-y-6">
+<div class="rounded-xl border border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-900 p-6">
+<h3 class="text-xl font-bold text-[#111418] dark:text-white mb-4">您的订单</h3>
+<div class="space-y-4">
+<div class="flex items-center gap-4 pb-4 border-b border-gray-200 dark:border-gray-700">
+<img class="h-16 w-16 rounded-lg object-cover" data-alt="White t-shirt" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAzN426pd8qMcJagtaSn7IKaLzaGhAWW8KVa7SDOMMOetRru9nM0SMdDLu4zsW-Dcdf3w8smljnQNlBEswpWgExPs3OcW9UwClaUWcHi57BcuLEbCaRb4RZHVMrg_IvFvkCOZgWILY1tXWcNbMmXoxFoz4BfaoJjllJNu6VOyN6SaJXCAUN8FwbC9sphDl1uOVNvGiLZ0KettXOXydjrrGIASXVcpMKbm3DniFas4fO87okTxCk98fTixaVcxv4Jw9evxwzDNVRV_kw"/>
+<div class="flex-grow">
+<p class="font-medium text-[#111418] dark:text-white">简约白T恤</p>
+<p class="text-sm text-[#617589] dark:text-gray-400">数量: 1</p>
+</div>
+<p class="font-medium text-[#111418] dark:text-white">¥120.00</p>
+</div>
+<div class="flex items-center gap-4 pb-4 border-b border-gray-200 dark:border-gray-700">
+<img class="h-16 w-16 rounded-lg object-cover" data-alt="Red running shoes" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDM3I8PLIPwUhuI1jNKtk127T7V8nM5AAgrd4GRmyDbetwlCpOJqwMdP6Pbv2c8Y80f2KjtZP8ZLFNQMCpR6EkHFZztESLSrEUeiJj0ekG2vEhl-aPKDwtg3ZmWIoumVPXRiWQR91tbN-wdpnoskozFr3ANXcV5zqJseVImPOVFBoo5ZAX9ciPwGErn8SbaOg9mmLmP73T4IVakNDOom59bTLkd6HAdvbHNJYasgIBEN7qPm0hpQUu3o3HWvNP6YZhH-vsAAFeXlC0I"/>
+<div class="flex-grow">
+<p class="font-medium text-[#111418] dark:text-white">红色跑鞋</p>
+<p class="text-sm text-[#617589] dark:text-gray-400">数量: 1</p>
+</div>
+<p class="font-medium text-[#111418] dark:text-white">¥450.00</p>
+</div>
+</div>
+<div class="mt-4 space-y-2 text-sm">
+<div class="flex justify-between">
+<span class="text-[#617589] dark:text-gray-400">小计</span>
+<span class="text-[#111418] dark:text-white">¥570.00</span>
+</div>
+<div class="flex justify-between">
+<span class="text-[#617589] dark:text-gray-400">运费</span>
+<span class="text-[#111418] dark:text-white">¥15.00</span>
+</div>
+<div class="flex justify-between">
+<span class="text-[#617589] dark:text-gray-400">税费</span>
+<span class="text-[#111418] dark:text-white">¥52.65</span>
+</div>
+</div>
+<div class="mt-4 pt-4 border-t border-gray-200 dark:border-gray-700">
+<div class="flex justify-between items-baseline">
+<span class="text-lg font-bold text-[#111418] dark:text-white">总计</span>
+<span class="text-2xl font-black text-[#111418] dark:text-white">¥637.65</span>
+</div>
+</div>
+</div>
+<button class="flex w-full items-center justify-center rounded-lg h-12 px-6 bg-primary text-white text-base font-bold hover:bg-primary/90 focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 dark:focus:ring-offset-background-dark">
+<span class="material-symbols-outlined mr-2">lock</span>
+                            确认并支付
+                        </button>
+<div class="flex items-center justify-center gap-2 text-sm text-[#617589] dark:text-gray-400">
+<span class="material-symbols-outlined text-base">verified_user</span>
+<span>SSL 安全支付</span>
+</div>
+</div>
+</div>
+</div>
+</main>
+</div>
+</body></html>

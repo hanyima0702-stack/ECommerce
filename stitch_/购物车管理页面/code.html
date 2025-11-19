@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Shopping Cart</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@200..800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "primary": "#137fec",
+              "background-light": "#f6f7f8",
+              "background-dark": "#101922",
+            },
+            fontFamily: {
+              "display": ["Manrope", "sans-serif"]
+            },
+            borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px"},
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+    </style>
+</head>
+<body class="font-display bg-background-light dark:bg-background-dark">
+<div class="relative flex h-auto min-h-screen w-full flex-col group/design-root overflow-x-hidden">
+<div class="layout-container flex h-full grow flex-col">
+<!-- TopNavBar -->
+<header class="flex items-center justify-between whitespace-nowrap border-b border-solid border-b-black/10 dark:border-b-white/10 px-6 md:px-10 lg:px-20 py-3 bg-white dark:bg-background-dark">
+<div class="flex items-center gap-4 text-slate-800 dark:text-white">
+<div class="size-6">
+<svg fill="none" viewbox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
+<path d="M4 4H17.3334V17.3334H30.6666V30.6666H44V44H4V4Z" fill="currentColor"></path>
+</svg>
+</div>
+<h2 class="text-slate-800 dark:text-white text-lg font-bold leading-tight tracking-[-0.015em]">E-Commerce</h2>
+</div>
+<div class="hidden md:flex flex-1 justify-center gap-8">
+<div class="flex items-center gap-9">
+<a class="text-slate-800 dark:text-slate-300 text-sm font-medium leading-normal" href="#">Home</a>
+<a class="text-slate-800 dark:text-slate-300 text-sm font-medium leading-normal" href="#">Shop</a>
+<a class="text-slate-800 dark:text-slate-300 text-sm font-medium leading-normal" href="#">Categories</a>
+</div>
+</div>
+<div class="flex items-center gap-4">
+<div class="flex gap-2">
+<button class="flex max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-10 bg-background-light dark:bg-white/10 text-slate-800 dark:text-white gap-2 text-sm font-bold leading-normal tracking-[0.015em] min-w-0 px-2.5">
+<span class="material-symbols-outlined text-xl">favorite</span>
+</button>
+<button class="flex max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-10 bg-background-light dark:bg-white/10 text-slate-800 dark:text-white gap-2 text-sm font-bold leading-normal tracking-[0.015em] min-w-0 px-2.5">
+<span class="material-symbols-outlined text-xl">shopping_cart</span>
+</button>
+</div>
+<div class="bg-center bg-no-repeat aspect-square bg-cover rounded-full size-10" data-alt="User avatar image" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuD69_zU7A-GEi6QXb7TgNWMrFBYAtdUCxmZjcCsHK5D8LnIyvDqLyfCV9iUeAZdgpN1rg9NHxJ6dW8QHmqZD_F_lyzhQHkywqHQ08cAHnM4oIAmj2j3w47X-9knZJ9zqrAeszSDLXkeOERocO3ZQq3SJ4omNWhXijQ_TroXLeXUiUydOs77Tf9N0ID2HZSe-AzFdiXk3DBe4Uw7M3V_F6PqOqh_zP-2sNFJX3OuLydqY9FNRrP5YszdqdWsp7eX_S-tYQyjCXOvdI-_");'></div>
+</div>
+</header>
+<main class="px-4 sm:px-6 lg:px-8 xl:px-20 py-10 lg:py-16">
+<div class="mx-auto max-w-7xl">
+<!-- Page Heading -->
+<div class="flex flex-wrap justify-between gap-3 mb-8">
+<p class="text-slate-900 dark:text-white text-4xl font-black leading-tight tracking-[-0.033em] min-w-72">My Cart (3 items)</p>
+</div>
+<div class="grid grid-cols-1 lg:grid-cols-3 gap-8 lg:gap-12">
+<!-- Left Column: Cart Items -->
+<div class="lg:col-span-2 flex flex-col gap-4">
+<!-- Toolbar -->
+<div class="flex justify-between items-center px-4 py-2 border-b border-slate-200 dark:border-slate-700">
+<div class="flex items-center gap-3">
+<input class="h-5 w-5 rounded border-slate-300 dark:border-slate-600 bg-transparent text-primary checked:bg-primary checked:border-primary focus:ring-0 focus:ring-offset-0" id="select-all" type="checkbox"/>
+<label class="text-slate-600 dark:text-slate-300 text-sm font-medium" for="select-all">Select All</label>
+</div>
+<button class="text-red-500 text-sm font-medium flex items-center gap-1.5 hover:text-red-600 dark:hover:text-red-400">
+<span class="material-symbols-outlined text-lg">delete</span>
+                                    Delete Selected
+                                </button>
+</div>
+<!-- Cart Item List -->
+<div class="flex flex-col divide-y divide-slate-200 dark:divide-slate-700 bg-white dark:bg-background-dark rounded-xl shadow-sm">
+<!-- List Item 1 -->
+<div class="flex flex-col sm:flex-row gap-4 px-4 py-5 justify-between items-start sm:items-center">
+<div class="flex items-start gap-4 flex-grow">
+<input checked="" class="mt-1 h-5 w-5 rounded border-slate-300 dark:border-slate-600 bg-transparent text-primary checked:bg-primary checked:border-primary focus:ring-0 focus:ring-offset-0" type="checkbox"/>
+<div class="bg-center bg-no-repeat aspect-square bg-cover rounded-lg size-20 shrink-0" data-alt="Vintage Leather Jacket" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuAA8lh4-z2ZSqEQtixYtIo7ung78qlbEXBc38661QuA4jzZ6eeSHR61X3jymrhPuQmGNbJH4EDftB9pL67TkBN1jpkWfDC6q2ApLnYwUNrGrH6Jm97lHHtq3WeaBLqFLThDfmhdxl5AoQXKfS4K6onc2MKyLMxtNCkWK9F9qJk3XZFcvDZtewepv9eZiF8fPBN_yFQ5p1MSlYaHDrGlvc9cljXhLS48lq4GprA5xakbWzWDNBLGXAG9sc9EoSwSGrfhOqcWt9A1LbVQ");'></div>
+<div class="flex flex-1 flex-col justify-center">
+<p class="text-slate-900 dark:text-white text-base font-medium leading-normal">Vintage Leather Jacket</p>
+<p class="text-slate-500 dark:text-slate-400 text-sm font-normal leading-normal">Color: Brown, Size: M</p>
+<p class="text-slate-900 dark:text-white text-base font-semibold sm:hidden mt-2">$120.00</p>
+</div>
+</div>
+<p class="text-slate-900 dark:text-white text-base font-semibold hidden sm:block">$120.00</p>
+<div class="shrink-0">
+<div class="flex items-center gap-2 text-slate-900 dark:text-white">
+<button class="text-base font-medium leading-normal flex h-8 w-8 items-center justify-center rounded-full bg-background-light dark:bg-white/10 cursor-pointer hover:bg-slate-200 dark:hover:bg-white/20">-</button>
+<input class="text-base font-medium leading-normal w-8 p-0 text-center bg-transparent focus:outline-0 focus:ring-0 focus:border-none border-none [appearance:textfield] [&amp;::-webkit-inner-spin-button]:appearance-none [&amp;::-webkit-outer-spin-button]:appearance-none" type="number" value="1"/>
+<button class="text-base font-medium leading-normal flex h-8 w-8 items-center justify-center rounded-full bg-background-light dark:bg-white/10 cursor-pointer hover:bg-slate-200 dark:hover:bg-white/20">+</button>
+</div>
+</div>
+</div>
+<!-- List Item 2 -->
+<div class="flex flex-col sm:flex-row gap-4 px-4 py-5 justify-between items-start sm:items-center">
+<div class="flex items-start gap-4 flex-grow">
+<input checked="" class="mt-1 h-5 w-5 rounded border-slate-300 dark:border-slate-600 bg-transparent text-primary checked:bg-primary checked:border-primary focus:ring-0 focus:ring-offset-0" type="checkbox"/>
+<div class="bg-center bg-no-repeat aspect-square bg-cover rounded-lg size-20 shrink-0" data-alt="Classic White T-Shirt" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuAzOKRBa7s3ukn8qIpNFJ5NZLhMKECF6y6bdVEjeVrTwteGBcYMr-gLZeLbsz7qRQ8XY1qLJ6I38hGyAlSmUQQUIn11mTJWSNRSyTCyzL7AMG-QzhLZevOT_KM4X8SfI5G4l5rUlAFv2HZ7OmnXrizenlaBBUP_09ZfiRddU4zyqFtxc6LLdksS94r8ySPgAs_etGZzM7Om16UeSmYm8X0WRm1kLROut3SckOe5M3FTl4k1_SCI6eoZ3SU8Vb1ZANE1SY_vrheMJqVy");'></div>
+<div class="flex flex-1 flex-col justify-center">
+<p class="text-slate-900 dark:text-white text-base font-medium leading-normal">Classic White T-Shirt</p>
+<p class="text-slate-500 dark:text-slate-400 text-sm font-normal leading-normal">Color: White, Size: L</p>
+<p class="text-slate-900 dark:text-white text-base font-semibold sm:hidden mt-2">$25.00</p>
+</div>
+</div>
+<p class="text-slate-900 dark:text-white text-base font-semibold hidden sm:block">$25.00</p>
+<div class="shrink-0">
+<div class="flex items-center gap-2 text-slate-900 dark:text-white">
+<button class="text-base font-medium leading-normal flex h-8 w-8 items-center justify-center rounded-full bg-background-light dark:bg-white/10 cursor-pointer hover:bg-slate-200 dark:hover:bg-white/20">-</button>
+<input class="text-base font-medium leading-normal w-8 p-0 text-center bg-transparent focus:outline-0 focus:ring-0 focus:border-none border-none [appearance:textfield] [&amp;::-webkit-inner-spin-button]:appearance-none [&amp;::-webkit-outer-spin-button]:appearance-none" type="number" value="2"/>
+<button class="text-base font-medium leading-normal flex h-8 w-8 items-center justify-center rounded-full bg-background-light dark:bg-white/10 cursor-pointer hover:bg-slate-200 dark:hover:bg-white/20">+</button>
+</div>
+</div>
+</div>
+<!-- List Item 3 -->
+<div class="flex flex-col sm:flex-row gap-4 px-4 py-5 justify-between items-start sm:items-center">
+<div class="flex items-start gap-4 flex-grow">
+<input class="mt-1 h-5 w-5 rounded border-slate-300 dark:border-slate-600 bg-transparent text-primary checked:bg-primary checked:border-primary focus:ring-0 focus:ring-offset-0" type="checkbox"/>
+<div class="bg-center bg-no-repeat aspect-square bg-cover rounded-lg size-20 shrink-0" data-alt="Denim Jeans" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuAOdrbqnQD_PdJuz-shpGScnqa_0Bex_TK3dkrl9EqbBzUHTsx0EIFeXDezaVJ1E0UX5c2vbtQStCA1X1dKV_DMlTg1sJWN-KKkpoiGErC4XehBJBLp4pZF2cGkgA7THXGWyy11tbl9HB7jiWlGBo5TWJ22IPXfSBky0kn7sei6IIziTlsL5UZj-9qar9iS7HudN-8P5-5pZeR-75TpPSnktHhTuxp5vD4WRWpfz9RihYpldFnBNN5CPWawBspbhdHqbeXLsa5d5-pq");'></div>
+<div class="flex flex-1 flex-col justify-center">
+<p class="text-slate-900 dark:text-white text-base font-medium leading-normal">Denim Jeans</p>
+<p class="text-slate-500 dark:text-slate-400 text-sm font-normal leading-normal">Color: Blue, Size: 32</p>
+<p class="text-slate-900 dark:text-white text-base font-semibold sm:hidden mt-2">$70.00</p>
+</div>
+</div>
+<p class="text-slate-900 dark:text-white text-base font-semibold hidden sm:block">$70.00</p>
+<div class="shrink-0">
+<div class="flex items-center gap-2 text-slate-900 dark:text-white">
+<button class="text-base font-medium leading-normal flex h-8 w-8 items-center justify-center rounded-full bg-background-light dark:bg-white/10 cursor-pointer hover:bg-slate-200 dark:hover:bg-white/20">-</button>
+<input class="text-base font-medium leading-normal w-8 p-0 text-center bg-transparent focus:outline-0 focus:ring-0 focus:border-none border-none [appearance:textfield] [&amp;::-webkit-inner-spin-button]:appearance-none [&amp;::-webkit-outer-spin-button]:appearance-none" type="number" value="1"/>
+<button class="text-base font-medium leading-normal flex h-8 w-8 items-center justify-center rounded-full bg-background-light dark:bg-white/10 cursor-pointer hover:bg-slate-200 dark:hover:bg-white/20">+</button>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Right Column: Order Summary -->
+<div class="lg:col-span-1">
+<div class="bg-white dark:bg-background-dark rounded-xl shadow-sm p-6 sticky top-10">
+<h3 class="text-xl font-bold text-slate-900 dark:text-white mb-6">Order Summary</h3>
+<div class="space-y-4 text-slate-600 dark:text-slate-300">
+<div class="flex justify-between">
+<span>Subtotal (2 items)</span>
+<span class="font-medium text-slate-800 dark:text-white">$170.00</span>
+</div>
+<div class="flex justify-between">
+<span>Discount</span>
+<span class="font-medium text-green-500">-$0.00</span>
+</div>
+<div class="flex justify-between">
+<span>Shipping</span>
+<span class="font-medium text-slate-800 dark:text-white">$5.00</span>
+</div>
+</div>
+<div class="mt-6 pt-4 border-t border-slate-200 dark:border-slate-700">
+<div class="flex justify-between items-center">
+<span class="text-lg font-semibold text-slate-900 dark:text-white">Total</span>
+<span class="text-2xl font-bold text-slate-900 dark:text-white">$175.00</span>
+</div>
+</div>
+<div class="mt-8 flex gap-2">
+<input class="w-full rounded-lg border-slate-300 dark:border-slate-600 bg-background-light dark:bg-white/5 text-slate-900 dark:text-white placeholder-slate-400 dark:placeholder-slate-500 focus:border-primary focus:ring-primary" placeholder="Coupon Code" type="text"/>
+<button class="flex-shrink-0 cursor-pointer items-center justify-center overflow-hidden rounded-lg h-11 bg-slate-200 dark:bg-white/10 text-slate-800 dark:text-white text-sm font-bold leading-normal px-4 hover:bg-slate-300 dark:hover:bg-white/20">Apply</button>
+</div>
+<button class="mt-6 w-full flex cursor-pointer items-center justify-center overflow-hidden rounded-lg h-12 bg-primary text-white text-base font-bold leading-normal hover:bg-primary/90">Proceed to Checkout</button>
+</div>
+</div>
+</div>
+</div>
+</main>
+</div>
+</div>
+</body></html>
