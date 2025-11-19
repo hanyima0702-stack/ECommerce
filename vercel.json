@@ -1,45 +1,27 @@
 {
-
-    "version": 2,
-
-    "builds": [
-
+  "rewrites": [
+    {
+      "source": "/",
+      "destination": "/index.html"
+    }
+  ],
+  "headers": [
+    {
+      "source": "/(.*)",
+      "headers": [
         {
-
-            "src": "./product_search_page/code.html",
-
-            "use": "@vercel/static"
-
+          "key": "X-Content-Type-Options",
+          "value": "nosniff"
         },
-
-{
-
-            "src": "./cart_manage_page/code.html",
-
-            "use": "@vercel/static"
-
-        }
-
-    ],
-
-    "routes": [
-
         {
-
-            "src": "/",
-
-            "dest": "./product_search_page/code.html"
-
+          "key": "X-Frame-Options",
+          "value": "DENY"
         },
-
-{
-
-            "src": "/cart",
-
-            "dest": "./cart_manage_page/code.html"
-
+        {
+          "key": "X-XSS-Protection",
+          "value": "1; mode=block"
         }
-
-    ]
-
+      ]
+    }
+  ]
 }

@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html class="light" lang="en">
+<head>
+    <meta charset="utf-8"/>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+    <title>E-Commerce Platform</title>
+    <link href="https://fonts.googleapis.com" rel="preconnect"/>
+    <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet"/>
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet"/>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#137fec",
+                        "background-light": "#f6f7f8",
+                        "background-dark": "#101922",
+                        "content-light": "#ffffff",
+                        "content-dark": "#182635"
+                    },
+                    fontFamily: {
+                        "display": ["Manrope", "sans-serif"]
+                    },
+                    borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px"},
+                },
+            },
+        }
+    </script>
+</head>
+<body class="bg-background-light dark:bg-background-dark font-display text-gray-800 dark:text-gray-200">
+    <div class="relative flex h-auto min-h-screen w-full flex-col">
+        <!-- TopNavBar -->
+        <header class="sticky top-0 z-10 bg-content-light/80 dark:bg-content-dark/80 backdrop-blur-sm border-b border-gray-200 dark:border-gray-700 font-display">
+            <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="flex h-16 items-center justify-between">
+                    <div class="flex items-center gap-4">
+                        <span class="material-symbols-outlined text-primary text-3xl">store</span>
+                        <h2 class="text-xl font-bold leading-tight tracking-[-0.015em] text-gray-900 dark:text-white">E-Commerce</h2>
+                    </div>
+                    <nav class="hidden md:flex flex-1 justify-center gap-8">
+                        <a class="text-sm font-medium leading-normal text-primary dark:text-primary" href="/">Home</a>
+                        <a class="text-sm font-medium leading-normal text-gray-700 dark:text-gray-300 hover:text-primary dark:hover:text-primary" href="/search.html">Search</a>
+                        <a class="text-sm font-medium leading-normal text-gray-700 dark:text-gray-300 hover:text-primary dark:hover:text-primary" href="/cart.html">Cart</a>
+                        <a class="text-sm font-medium leading-normal text-gray-700 dark:text-gray-300 hover:text-primary dark:hover:text-primary" href="/orders.html">Orders</a>
+                    </nav>
+                    <div class="flex items-center gap-4">
+                        <a href="/cart.html" class="flex cursor-pointer items-center justify-center rounded-lg h-10 w-10 bg-background-light dark:bg-background-dark text-gray-800 dark:text-gray-200 hover:bg-gray-200 dark:hover:bg-gray-700">
+                            <span class="material-symbols-outlined">shopping_cart</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <main class="container mx-auto px-4 sm:px-6 lg:px-8 py-8 flex-1">
+            <!-- Hero Section -->
+            <div class="text-center py-16">
+                <h1 class="text-5xl font-black text-gray-900 dark:text-white mb-6">Welcome to E-Commerce</h1>
+                <p class="text-xl text-gray-600 dark:text-gray-400 mb-8 max-w-2xl mx-auto">
+                    Discover amazing products, manage your cart, and track your orders all in one place.
+                </p>
+                <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                    <a href="/search.html" class="inline-flex items-center justify-center px-8 py-3 rounded-lg bg-primary text-white font-semibold hover:bg-primary/90 transition-colors">
+                        <span class="material-symbols-outlined mr-2">search</span>
+                        Start Shopping
+                    </a>
+                    <a href="/orders.html" class="inline-flex items-center justify-center px-8 py-3 rounded-lg border border-gray-300 dark:border-gray-600 text-gray-700 dark:text-gray-300 font-semibold hover:bg-gray-50 dark:hover:bg-gray-800 transition-colors">
+                        <span class="material-symbols-outlined mr-2">package_2</span>
+                        Track Orders
+                    </a>
+                </div>
+            </div>
+
+            <!-- Features Grid -->
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mt-16">
+                <div class="bg-content-light dark:bg-content-dark p-6 rounded-xl border border-gray-200 dark:border-gray-700 text-center">
+                    <div class="w-12 h-12 bg-primary/20 rounded-lg flex items-center justify-center mx-auto mb-4">
+                        <span class="material-symbols-outlined text-primary text-2xl">search</span>
+                    </div>
+                    <h3 class="text-lg font-semibold text-gray-900 dark:text-white mb-2">Product Search</h3>
+                    <p class="text-gray-600 dark:text-gray-400 text-sm">Find products with advanced filters and sorting options</p>
+                    <a href="/search.html" class="inline-block mt-3 text-primary hover:underline text-sm font-medium">Explore →</a>
+                </div>
+
+                <div class="bg-content-light dark:bg-content-dark p-6 rounded-xl border border-gray-200 dark:border-gray-700 text-center">
+                    <div class="w-12 h-12 bg-primary/20 rounded-lg flex items-center justify-center mx-auto mb-4">
+                        <span class="material-symbols-outlined text-primary text-2xl">shopping_cart</span>
+                    </div>
+                    <h3 class="text-lg font-semibold text-gray-900 dark:text-white mb-2">Cart Management</h3>
+                    <p class="text-gray-600 dark:text-gray-400 text-sm">Manage your shopping cart with ease</p>
+                    <a href="/cart.html" class="inline-block mt-3 text-primary hover:underline text-sm font-medium">View Cart →</a>
+                </div>
+
+                <div class="bg-content-light dark:bg-content-dark p-6 rounded-xl border border-gray-200 dark:border-gray-700 text-center">
+                    <div class="w-12 h-12 bg-primary/20 rounded-lg flex items-center justify-center mx-auto mb-4">
+                        <span class="material-symbols-outlined text-primary text-2xl">payment</span>
+                    </div>
+                    <h3 class="text-lg font-semibold text-gray-900 dark:text-white mb-2">Secure Checkout</h3>
+                    <p class="text-gray-600 dark:text-gray-400 text-sm">Safe and secure payment processing</p>
+                    <a href="/checkout.html" class="inline-block mt-3 text-primary hover:underline text-sm font-medium">Checkout →</a>
+                </div>
+
+                <div class="bg-content-light dark:bg-content-dark p-6 rounded-xl border border-gray-200 dark:border-gray-700 text-center">
+                    <div class="w-12 h-12 bg-primary/20 rounded-lg flex items-center justify-center mx-auto mb-4">
+                        <span class="material-symbols-outlined text-primary text-2xl">package_2</span>
+                    </div>
+                    <h3 class="text-lg font-semibold text-gray-900 dark:text-white mb-2">Order Tracking</h3>
+                    <p class="text-gray-600 dark:text-gray-400 text-sm">Track your orders in real-time</p>
+                    <a href="/orders.html" class="inline-block mt-3 text-primary hover:underline text-sm font-medium">Track →</a>
+                </div>
+            </div>
+        </main>
+
+        <!-- Footer -->
+        <footer class="bg-content-light dark:bg-content-dark border-t border-gray-200 dark:border-gray-700 mt-16">
+            <div class="container mx-auto px-4 sm:px-6 lg:px-8 py-8">
+                <div class="text-center text-gray-600 dark:text-gray-400">
+                    <p>&copy; 2024 E-Commerce Platform. All rights reserved.</p>
+                </div>
+            </div>
+        </footer>
+    </div>
+</body>
+</html>
