@@ -1,13 +1,45 @@
 {
+
     "version": 2,
-    "routes": [
+
+    "builds": [
+
         {
-            "src": "/",
-            "dest": "/product_search_page/code.html"
+
+            "src": "./product_search_page/code.html",
+
+            "use": "@vercel/static"
+
         },
-        {
-            "src": "/cart",
-            "dest": "/cart_manage_page/code.html"
+
+{
+
+            "src": "./cart_manage_page/code.html",
+
+            "use": "@vercel/static"
+
         }
+
+    ],
+
+    "routes": [
+
+        {
+
+            "src": "/",
+
+            "dest": "./product_search_page/code.html"
+
+        },
+
+{
+
+            "src": "/cart",
+
+            "dest": "./cart_manage_page/code.html"
+
+        }
+
     ]
+
 }
