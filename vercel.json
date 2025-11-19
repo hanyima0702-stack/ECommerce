@@ -1,0 +1,13 @@
+{
+    "version": 2,
+    "routes": [
+        {
+            "src": "/",
+            "dest": "/product_search_page/code.html"
+        },
+        {
+            "src": "/cart",
+            "dest": "/cart_manage_page/code.html"
+        }
+    ]
+}
