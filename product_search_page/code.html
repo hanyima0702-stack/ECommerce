@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>E-Commerce Search Results</title>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "primary": "#137fec",
+              "background-light": "#f6f7f8",
+              "background-dark": "#101922",
+              "content-light": "#ffffff",
+              "content-dark": "#182635"
+            },
+            fontFamily: {
+              "display": ["Manrope", "sans-serif"]
+            },
+            borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px"},
+          },
+        },
+      }
+    </script>
+</head>
+<body class="bg-background-light dark:bg-background-dark font-display text-gray-800 dark:text-gray-200">
+<div class="relative flex h-auto min-h-screen w-full flex-col">
+<!-- TopNavBar -->
+<header class="sticky top-0 z-10 bg-content-light/80 dark:bg-content-dark/80 backdrop-blur-sm border-b border-gray-200 dark:border-gray-700 font-display">
+<div class="container mx-auto px-4 sm:px-6 lg:px-8">
+<div class="flex h-16 items-center justify-between">
+<div class="flex items-center gap-4">
+<span class="material-symbols-outlined text-primary text-3xl">store</span>
+<h2 class="text-xl font-bold leading-tight tracking-[-0.015em] text-gray-900 dark:text-white">E-Commerce</h2>
+</div>
+<nav class="hidden md:flex flex-1 justify-center gap-8">
+<a class="text-sm font-medium leading-normal text-gray-700 dark:text-gray-300 hover:text-primary dark:hover:text-primary" href="/">Home</a>
+<a class="text-sm font-medium leading-normal text-primary dark:text-primary" href="/search.html">Search</a>
+<a class="text-sm font-medium leading-normal text-gray-700 dark:text-gray-300 hover:text-primary dark:hover:text-primary" href="/cart.html">Cart</a>
+<a class="text-sm font-medium leading-normal text-gray-700 dark:text-gray-300 hover:text-primary dark:hover:text-primary" href="/orders.html">Orders</a>
+</nav>
+<div class="flex items-center gap-4">
+<button class="flex cursor-pointer items-center justify-center rounded-lg h-10 w-10 bg-background-light dark:bg-background-dark text-gray-800 dark:text-gray-200 hover:bg-gray-200 dark:hover:bg-gray-700">
+<span class="material-symbols-outlined">shopping_cart</span>
+</button>
+</div>
+</div>
+</div>
+</header>
+<main class="container mx-auto px-4 sm:px-6 lg:px-8 py-8">
+<!-- Page Heading & Search Bar -->
+<div class="mb-8">
+<div class="flex flex-col gap-3 p-4">
+<h1 class="text-gray-900 dark:text-white text-4xl font-black leading-tight tracking-[-0.033em]">Search Results</h1>
+<p class="text-gray-500 dark:text-gray-400 text-base font-normal leading-normal">Find the products you're looking for by name, category, or keyword.</p>
+</div>
+<div class="px-4 py-3">
+<label class="flex flex-col min-w-40 h-14 w-full">
+<div class="flex w-full flex-1 items-stretch rounded-xl h-full shadow-sm bg-content-light dark:bg-content-dark border border-gray-200 dark:border-gray-700">
+<div class="text-gray-400 dark:text-gray-500 flex items-center justify-center pl-4">
+<span class="material-symbols-outlined text-2xl">search</span>
+</div>
+<input class="form-input flex w-full min-w-0 flex-1 resize-none overflow-hidden rounded-lg text-gray-900 dark:text-white focus:outline-0 focus:ring-0 border-none bg-transparent h-full placeholder:text-gray-400 dark:placeholder:text-gray-500 px-4 text-base font-normal leading-normal" value="women's running shoes"/>
+<div class="flex items-center justify-center pr-4">
+<button class="flex cursor-pointer items-center justify-center overflow-hidden rounded-lg bg-transparent text-gray-800 dark:text-gray-200">
+<span class="material-symbols-outlined text-gray-400 dark:text-gray-500 text-2xl">close</span>
+</button>
+</div>
+</div>
+</label>
+</div>
+</div>
+<div class="grid grid-cols-1 lg:grid-cols-4 gap-8">
+<!-- Sidebar for Filters -->
+<aside class="lg:col-span-1">
+<div class="bg-content-light dark:bg-content-dark p-4 rounded-xl shadow-sm border border-gray-200 dark:border-gray-700">
+<h2 class="text-gray-900 dark:text-white text-lg font-bold leading-tight tracking-[-0.015em] px-4 pb-3 pt-2">Filters</h2>
+<div class="flex flex-col px-4">
+<details class="flex flex-col border-t border-gray-200 dark:border-gray-700 py-2 group" open="">
+<summary class="flex cursor-pointer items-center justify-between gap-6 py-2">
+<p class="text-gray-900 dark:text-white text-sm font-medium leading-normal">Category</p>
+<span class="material-symbols-outlined text-gray-800 dark:text-gray-200 group-open:rotate-180 transition-transform">expand_more</span>
+</summary>
+<div class="space-y-2 pt-2">
+<label class="flex items-center gap-2 text-gray-600 dark:text-gray-300 text-sm"><input checked="" class="form-checkbox rounded text-primary focus:ring-primary/50" type="checkbox"/> Running</label>
+<label class="flex items-center gap-2 text-gray-600 dark:text-gray-300 text-sm"><input class="form-checkbox rounded text-primary focus:ring-primary/50" type="checkbox"/> Casual</label>
+<label class="flex items-center gap-2 text-gray-600 dark:text-gray-300 text-sm"><input class="form-checkbox rounded text-primary focus:ring-primary/50" type="checkbox"/> Boots</label>
+</div>
+</details>
+<details class="flex flex-col border-t border-gray-200 dark:border-gray-700 py-2 group">
+<summary class="flex cursor-pointer items-center justify-between gap-6 py-2">
+<p class="text-gray-900 dark:text-white text-sm font-medium leading-normal">Brand</p>
+<span class="material-symbols-outlined text-gray-800 dark:text-gray-200 group-open:rotate-180 transition-transform">expand_more</span>
+</summary>
+<div class="space-y-2 pt-2">
+<label class="flex items-center gap-2 text-gray-600 dark:text-gray-300 text-sm"><input class="form-checkbox rounded text-primary focus:ring-primary/50" type="checkbox"/> Brand A</label>
+<label class="flex items-center gap-2 text-gray-600 dark:text-gray-300 text-sm"><input checked="" class="form-checkbox rounded text-primary focus:ring-primary/50" type="checkbox"/> Brand B</label>
+</div>
+</details>
+<details class="flex flex-col border-t border-gray-200 dark:border-gray-700 py-2 group">
+<summary class="flex cursor-pointer items-center justify-between gap-6 py-2">
+<p class="text-gray-900 dark:text-white text-sm font-medium leading-normal">Price Range</p>
+<span class="material-symbols-outlined text-gray-800 dark:text-gray-200 group-open:rotate-180 transition-transform">expand_more</span>
+</summary>
+<div class="pt-4">
+<input class="w-full h-2 bg-gray-200 dark:bg-gray-600 rounded-lg appearance-none cursor-pointer" style="--tw-accent-color: var(--p-color-primary, #137fec); accent-color: var(--tw-accent-color);" type="range"/>
+<div class="flex justify-between text-xs text-gray-500 dark:text-gray-400 mt-2"><span>$0</span><span>$500</span></div>
+</div>
+</details>
+<details class="flex flex-col border-t border-gray-200 dark:border-gray-700 py-2 group">
+<summary class="flex cursor-pointer items-center justify-between gap-6 py-2">
+<p class="text-gray-900 dark:text-white text-sm font-medium leading-normal">Rating</p>
+<span class="material-symbols-outlined text-gray-800 dark:text-gray-200 group-open:rotate-180 transition-transform">expand_more</span>
+</summary>
+<div class="flex items-center gap-1 pt-2">
+<span class="material-symbols-outlined text-yellow-500">star</span>
+<span class="material-symbols-outlined text-yellow-500">star</span>
+<span class="material-symbols-outlined text-yellow-500">star</span>
+<span class="material-symbols-outlined text-yellow-500">star</span>
+<span class="material-symbols-outlined text-gray-300 dark:text-gray-600">star_outline</span>
+<span class="text-sm text-gray-500 dark:text-gray-400 ml-2">&amp; Up</span>
+</div>
+</details>
+</div>
+</div>
+</aside>
+<!-- Product Grid -->
+<div class="lg:col-span-3">
+<!-- Results Header and Sorting -->
+<div class="flex flex-col sm:flex-row justify-between items-center mb-6">
+<p class="text-gray-600 dark:text-gray-400 text-sm mb-4 sm:mb-0">Showing 24 results for 'women's running shoes'</p>
+<div class="flex items-center gap-2">
+<label class="text-sm font-medium text-gray-700 dark:text-gray-300" for="sort">Sort by:</label>
+<select class="form-select rounded-lg border-gray-300 dark:border-gray-600 bg-content-light dark:bg-content-dark text-gray-800 dark:text-gray-200 focus:border-primary focus:ring-primary/50 text-sm" id="sort">
+<option>Relevance</option>
+<option>Price: Low to High</option>
+<option>Price: High to Low</option>
+<option>New Arrivals</option>
+</select>
+</div>
+</div>
+<!-- Product Card Grid -->
+<div class="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 gap-6">
+<!-- Product Card 1 -->
+<div class="bg-content-light dark:bg-content-dark rounded-xl shadow-sm border border-gray-200 dark:border-gray-700 overflow-hidden flex flex-col group transition-all duration-300 hover:shadow-lg hover:-translate-y-1">
+<div class="relative">
+<img class="w-full h-48 object-cover" data-alt="A pair of red and white running shoes on a plain background." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCKYcn30R6Avy2RKJf3ew_dvQb3-h68gBginFDatvf6XOxZJ2TuYKPwcugs2FXJIFJ5uVy0JUDU1vtnTk9FjroeHFB7OppEDWIJlEBsKq-Bk7cKj4NG-BBgJETeqljIs1r8vjYeMbfYdp7n9Jdc8t61hEF3NNI-_-smSmhRMXXsjXpX2FG81JB3i2tQqscU6sZ2VNT9j6nDoS98N-iZ0Fu6A9PqpfuD6qapvekm-rQCG_pGujK2xDr6YqqkHYlJ2rzueEP7Gv6qVEtY"/>
+</div>
+<div class="p-4 flex flex-col flex-grow">
+<h3 class="text-base font-bold text-gray-900 dark:text-white truncate">Air Zoom Pegasus</h3>
+<p class="text-sm text-gray-500 dark:text-gray-400 mt-1">High performance running shoe</p>
+<div class="flex items-center mt-2">
+<span class="material-symbols-outlined text-sm text-yellow-500">star</span>
+<span class="material-symbols-outlined text-sm text-yellow-500">star</span>
+<span class="material-symbols-outlined text-sm text-yellow-500">star</span>
+<span class="material-symbols-outlined text-sm text-yellow-500">star</span>
+<span class="material-symbols-outlined text-sm text-gray-300 dark:text-gray-600">star</span>
+<span class="text-xs text-gray-500 dark:text-gray-400 ml-1">(120)</span>
+</div>
+<div class="flex justify-between items-center mt-4">
+<p class="text-lg font-extrabold text-gray-900 dark:text-white">$120.00</p>
+<button class="flex items-center justify-center h-9 px-3 rounded-lg bg-primary/20 text-primary hover:bg-primary hover:text-white transition-colors duration-200 text-sm font-bold">
+<span class="material-symbols-outlined text-base">add_shopping_cart</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Repeat Product Card for grid -->
+<div class="bg-content-light dark:bg-content-dark rounded-xl shadow-sm border border-gray-200 dark:border-gray-700 overflow-hidden flex flex-col group transition-all duration-300 hover:shadow-lg hover:-translate-y-1">
+<div class="relative">
+<img class="w-full h-48 object-cover" data-alt="A pair of colorful chunky sneakers with pastel colors." src="https://lh3.googleusercontent.com/aida-public/AB6AXuB-F2QDjMnkRmFzKicQdNrMCzWPw5VoBqcQycMO-NP575UPBbaSXjXZKvrh-EhbEku7IRFDWdp3RVmT8K4Bd6K9hgnDLj3AyzqQSWSR8DE-x2tEfe2Ap32Jqhj76SXMxaF11Ynih5xY6ifs1Zkik0ofyY7yv7dXfpmeXTamnYxW66KhvacxxfexBF3cog8nQC8O_qKMspEabzbN-yjmZ2Hc3dbgE93YO3ocYwaUQUDqxvX_jzA7o_xWjOWEvIL7-RuRab-X5981ju2W"/>
+</div>
+<div class="p-4 flex flex-col flex-grow">
+<h3 class="text-base font-bold text-gray-900 dark:text-white truncate">Cloud Runner 5</h3>
+<p class="text-sm text-gray-500 dark:text-gray-400 mt-1">Comfortable for daily wear</p>
+<div class="flex items-center mt-2">
+<span class="material-symbols-outlined text-sm text-yellow-500">star</span>
+<span class="material-symbols-outlined text-sm text-yellow-500">star</span>
+<span class="material-symbols-outlined text-sm text-yellow-500">star</span>
+<span class="material-symbols-outlined text-sm text-yellow-500">star</span>
+<span class="material-symbols-outlined text-sm text-yellow-500">star_half</span>
+<span class="text-xs text-gray-500 dark:text-gray-400 ml-1">(98)</span>
+</div>
+<div class="flex justify-between items-center mt-4">
+<p class="text-lg font-extrabold text-gray-900 dark:text-white">$95.50</p>
+<button class="flex items-center justify-center h-9 px-3 rounded-lg bg-primary/20 text-primary hover:bg-primary hover:text-white transition-colors duration-200 text-sm font-bold">
+<span class="material-symbols-outlined text-base">add_shopping_cart</span>
+</button>
+</div>
+</div>
+</div>
+<div class="bg-content-light dark:bg-content-dark rounded-xl shadow-sm border border-gray-200 dark:border-gray-700 overflow-hidden flex flex-col group transition-all duration-300 hover:shadow-lg hover:-translate-y-1">
+<div class="relative">
+<img class="w-full h-48 object-cover" data-alt="A single white and black athletic shoe against a yellow background." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCLKqD5qhkSEkNch3l_RfwOt-Wd7cX2zj7k2IubkD_RSvZemIEiSnktSvXvT1t-HqqLIPrRRyj5_JakWYDxNkMeyEsHqD9itXKefCcsSJxSn7YNssk17IwYH1jhJyjnI38MGIuti_8lec_EWjLyf7j3seZJxFA8N6HEt3isCdcJ_jUlKxovfyM5ur5pJ4a8a1Q2xGPa2Q0ZGcI8icJBt2e0EBszphBWjlaSZiACCnY-kMVvUQCDjM7G-RsmemkG9ef1eUjD5a21Smv3"/>
+</div>
+<div class="p-4 flex flex-col flex-grow">
+<h3 class="text-base font-bold text-gray-900 dark:text-white truncate">TrailBlazer XT</h3>
+<p class="text-sm text-gray-500 dark:text-gray-400 mt-1">Durable trail running shoe</p>
+<div class="flex items-center mt-2">
+<span class="material-symbols-outlined text-sm text-yellow-500">star</span>
+<span class="material-symbols-outlined text-sm text-yellow-500">star</span>
+<span class="material-symbols-outlined text-sm text-yellow-500">star</span>
+<span class="material-symbols-outlined text-sm text-yellow-500">star</span>
+<span class="material-symbols-outlined text-sm text-gray-300 dark:text-gray-600">star</span>
+<span class="text-xs text-gray-500 dark:text-gray-400 ml-1">(210)</span>
+</div>
+<div class="flex justify-between items-center mt-4">
+<p class="text-lg font-extrabold text-gray-900 dark:text-white">$150.00</p>
+<button class="flex items-center justify-center h-9 px-3 rounded-lg bg-primary/20 text-primary hover:bg-primary hover:text-white transition-colors duration-200 text-sm font-bold">
+<span class="material-symbols-outlined text-base">add_shopping_cart</span>
+</button>
+</div>
+</div>
+</div>
+<div class="bg-content-light dark:bg-content-dark rounded-xl shadow-sm border border-gray-200 dark:border-gray-700 overflow-hidden flex flex-col group transition-all duration-300 hover:shadow-lg hover:-translate-y-1">
+<div class="relative">
+<img class="w-full h-48 object-cover" data-alt="A pair of blue and orange sneakers, one shoe leaning on the other." src="https://lh3.googleusercontent.com/aida-public/AB6AXuD4h18VHkQE52AhrD3msXqXcdwLikadgK3vZ9Z5SxXDz4C4WY8P5SoQRL50II-c5mriQmP84FWNP1kd84ZAveW-VT-d3WqfNwQ6Lt8UQeeKbzEdWDqcPaK9smtSKBHe3Vx_wuMfWA7uWN_TGnbTC68fORWxfhqMa4yqc7NZbM4Jyp-y9EZyTNemqScY_wwZ_WkfGR2JbCPgnC7zGOxxE08a_orjBWyKqNamUCtd3exDRJx_pmkog1wNZtB1jB8ApFjofIyzh6t04L8t"/>
+</div>
+<div class="p-4 flex flex-col flex-grow">
+<h3 class="text-base font-bold text-gray-900 dark:text-white truncate">Swift Pace Trainer</h3>
+<p class="text-sm text-gray-500 dark:text-gray-400 mt-1">Lightweight and responsive</p>
+<div class="flex items-center mt-2">
+<span class="material-symbols-outlined text-sm text-yellow-500">star</span>
+<span class="material-symbols-outlined text-sm text-yellow-500">star</span>
+<span class="material-symbols-outlined text-sm text-yellow-500">star</span>
+<span class="material-symbols-outlined text-sm text-yellow-500">star</span>
+<span class="material-symbols-outlined text-sm text-yellow-500">star_half</span>
+<span class="text-xs text-gray-500 dark:text-gray-400 ml-1">(154)</span>
+</div>
+<div class="flex justify-between items-center mt-4">
+<p class="text-lg font-extrabold text-gray-900 dark:text-white">$110.00</p>
+<button class="flex items-center justify-center h-9 px-3 rounded-lg bg-primary/20 text-primary hover:bg-primary hover:text-white transition-colors duration-200 text-sm font-bold">
+<span class="material-symbols-outlined text-base">add_shopping_cart</span>
+</button>
+</div>
+</div>
+</div>
+<div class="bg-content-light dark:bg-content-dark rounded-xl shadow-sm border border-gray-200 dark:border-gray-700 overflow-hidden flex flex-col group transition-all duration-300 hover:shadow-lg hover:-translate-y-1">
+<div class="relative">
+<img class="w-full h-48 object-cover" data-alt="A classic black and white checkered slip-on shoe." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDy5Ybf3xcSm0moQKKBdSNAiYtB1kSLashkPRRShWzz2G94_2LEaNDIOKjHQaaNn609evHYxJvPv_eUkA0MJfpg5HED0KadjedJxcF1LdSPlz59bQQW8yj_B2Ugxj2L7EMW-74qUSA9qgdYB8PeL-EILCOI-xIH6NGTDP5Z-LgRxhFNCFxeBwOgzTiRcdE_Qupi-zEy_Vz2QHPmruwzEPdu_zpHVtnLNWsXSoEfffluZS05rC4E58bQjyPrb6Y9FsTmnAjX3MrBIC6L"/>
+</div>
+<div class="p-4 flex flex-col flex-grow">
+<h3 class="text-base font-bold text-gray-900 dark:text-white truncate">Classic Slip-On</h3>
+<p class="text-sm text-gray-500 dark:text-gray-400 mt-1">Iconic casual footwear</p>
+<div class="flex items-center mt-2">
+<span class="material-symbols-outlined text-sm text-yellow-500">star</span>
+<span class="material-symbols-outlined text-sm text-yellow-500">star</span>
+<span class="material-symbols-outlined text-sm text-yellow-500">star</span>
+<span class="material-symbols-outlined text-sm text-yellow-500">star</span>
+<span class="material-symbols-outlined text-sm text-gray-300 dark:text-gray-600">star</span>
+<span class="text-xs text-gray-500 dark:text-gray-400 ml-1">(500+)</span>
+</div>
+<div class="flex justify-between items-center mt-4">
+<p class="text-lg font-extrabold text-gray-900 dark:text-white">$65.00</p>
+<button class="flex items-center justify-center h-9 px-3 rounded-lg bg-primary/20 text-primary hover:bg-primary hover:text-white transition-colors duration-200 text-sm font-bold">
+<span class="material-symbols-outlined text-base">add_shopping_cart</span>
+</button>
+</div>
+</div>
+</div>
+<div class="bg-content-light dark:bg-content-dark rounded-xl shadow-sm border border-gray-200 dark:border-gray-700 overflow-hidden flex flex-col group transition-all duration-300 hover:shadow-lg hover:-translate-y-1">
+<div class="relative">
+<img class="w-full h-48 object-cover" data-alt="A pair of clean white leather sneakers with subtle branding." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDvUuNOnhU8tCBSo3E_VsdGloB2Q0SpbCaftqEKdv30gY9TcBgB1KJsUrY3Ckll4l1ZSldZdn5asyT39Mw3JJsdaukh2q_O0xHWHIu570aUeFghKc9NiLePz2CJB5gqaWSXe4---kT2Ker3fZaqc87mYqqecCoccV6emss-VHfbzt4HVnezSn8JeI-p9RkUCP1RyHVa8XjgzIEiwaksphp9gch-MxGfE8C4wxAKnkhIGsL83CFUaG0BDJl9HkN-vYckVoG6ap8rCa2u"/>
+</div>
+<div class="p-4 flex flex-col flex-grow">
+<h3 class="text-base font-bold text-gray-900 dark:text-white truncate">Urban Minimalist</h3>
+<p class="text-sm text-gray-500 dark:text-gray-400 mt-1">Sleek and versatile design</p>
+<div class="flex items-center mt-2">
+<span class="material-symbols-outlined text-sm text-yellow-500">star</span>
+<span class="material-symbols-outlined text-sm text-yellow-500">star</span>
+<span class="material-symbols-outlined text-sm text-yellow-500">star</span>
+<span class="material-symbols-outlined text-sm text-yellow-500">star</span>
+<span class="material-symbols-outlined text-sm text-yellow-500">star</span>
+<span class="text-xs text-gray-500 dark:text-gray-400 ml-1">(32)</span>
+</div>
+<div class="flex justify-between items-center mt-4">
+<p class="text-lg font-extrabold text-gray-900 dark:text-white">$135.00</p>
+<button class="flex items-center justify-center h-9 px-3 rounded-lg bg-primary/20 text-primary hover:bg-primary hover:text-white transition-colors duration-200 text-sm font-bold">
+<span class="material-symbols-outlined text-base">add_shopping_cart</span>
+</button>
+</div>
+</div>
+</div>
+</div>
+<!-- Pagination -->
+<div class="mt-10 flex justify-center">
+<nav aria-label="Pagination" class="flex items-center gap-2">
+<a class="inline-flex items-center justify-center h-10 w-10 rounded-lg text-gray-500 dark:text-gray-400 bg-content-light dark:bg-content-dark border border-gray-200 dark:border-gray-700 hover:bg-gray-100 dark:hover:bg-gray-700" href="#">
+<span class="material-symbols-outlined">chevron_left</span>
+</a>
+<a class="inline-flex items-center justify-center h-10 w-10 rounded-lg text-white bg-primary border border-primary" href="#">1</a>
+<a class="inline-flex items-center justify-center h-10 w-10 rounded-lg text-gray-700 dark:text-gray-300 bg-content-light dark:bg-content-dark border border-gray-200 dark:border-gray-700 hover:bg-gray-100 dark:hover:bg-gray-700" href="#">2</a>
+<a class="inline-flex items-center justify-center h-10 w-10 rounded-lg text-gray-700 dark:text-gray-300 bg-content-light dark:bg-content-dark border border-gray-200 dark:border-gray-700 hover:bg-gray-100 dark:hover:bg-gray-700" href="#">3</a>
+<span class="inline-flex items-center justify-center h-10 w-10 text-gray-500 dark:text-gray-400">...</span>
+<a class="inline-flex items-center justify-center h-10 w-10 rounded-lg text-gray-700 dark:text-gray-300 bg-content-light dark:bg-content-dark border border-gray-200 dark:border-gray-700 hover:bg-gray-100 dark:hover:bg-gray-700" href="#">8</a>
+<a class="inline-flex items-center justify-center h-10 w-10 rounded-lg text-gray-500 dark:text-gray-400 bg-content-light dark:bg-content-dark border border-gray-200 dark:border-gray-700 hover:bg-gray-100 dark:hover:bg-gray-700" href="#">
+<span class="material-symbols-outlined">chevron_right</span>
+</a>
+</nav>
+</div>
+</div>
+</div>
+</main>
+</div>
+</body></html>
