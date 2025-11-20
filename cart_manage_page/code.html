@@ -37,18 +37,15 @@
 <!-- TopNavBar -->
 <header class="flex items-center justify-between whitespace-nowrap border-b border-solid border-b-black/10 dark:border-b-white/10 px-6 md:px-10 lg:px-20 py-3 bg-white dark:bg-background-dark">
 <div class="flex items-center gap-4 text-slate-800 dark:text-white">
-<div class="size-6">
-<svg fill="none" viewbox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
-<path d="M4 4H17.3334V17.3334H30.6666V30.6666H44V44H4V4Z" fill="currentColor"></path>
-</svg>
-</div>
-<h2 class="text-slate-800 dark:text-white text-lg font-bold leading-tight tracking-[-0.015em]">E-Commerce</h2>
+<span class="material-symbols-outlined text-primary text-3xl">store</span>
+<h2 class="text-xl font-bold leading-tight tracking-[-0.015em] text-gray-900 dark:text-white">E-Commerce</h2>
 </div>
 <div class="hidden md:flex flex-1 justify-center gap-8">
 <div class="flex items-center gap-9">
-<a class="text-slate-800 dark:text-slate-300 text-sm font-medium leading-normal" href="#">Home</a>
-<a class="text-slate-800 dark:text-slate-300 text-sm font-medium leading-normal" href="#">Shop</a>
-<a class="text-slate-800 dark:text-slate-300 text-sm font-medium leading-normal" href="#">Categories</a>
+<a class="text-slate-800 dark:text-slate-300 text-sm font-medium leading-normal" href="/">Home</a>
+<a class="text-slate-800 dark:text-slate-300 text-sm font-medium leading-normal" href="/search">Search</a>
+<a class="text-slate-800 dark:text-slate-300 text-sm font-medium leading-normal" href="/cart">Cart</a>
+<a class="text-slate-800 dark:text-slate-300 text-sm font-medium leading-normal" href="/orders">Orders</a>
 </div>
 </div>
 <div class="flex items-center gap-4">
@@ -175,7 +172,7 @@
 <input class="w-full rounded-lg border-slate-300 dark:border-slate-600 bg-background-light dark:bg-white/5 text-slate-900 dark:text-white placeholder-slate-400 dark:placeholder-slate-500 focus:border-primary focus:ring-primary" placeholder="Coupon Code" type="text"/>
 <button class="flex-shrink-0 cursor-pointer items-center justify-center overflow-hidden rounded-lg h-11 bg-slate-200 dark:bg-white/10 text-slate-800 dark:text-white text-sm font-bold leading-normal px-4 hover:bg-slate-300 dark:hover:bg-white/20">Apply</button>
 </div>
-<button class="mt-6 w-full flex cursor-pointer items-center justify-center overflow-hidden rounded-lg h-12 bg-primary text-white text-base font-bold leading-normal hover:bg-primary/90">Proceed to Checkout</button>
+<a href="/checkout" class="mt-6 w-full flex cursor-pointer items-center justify-center overflow-hidden rounded-lg h-12 bg-primary text-white text-base font-bold leading-normal hover:bg-primary/90">Proceed to Checkout</a>
 </div>
 </div>
 </div>
