@@ -3,6 +3,22 @@
     {
       "source": "/",
       "destination": "/index.html"
+    },
+    {
+      "source": "/search",
+      "destination": "/product_search_page/code.html"
+    },
+    {
+      "source": "/cart",
+      "destination": "/cart_manage_page/code.html"
+    },
+    {
+      "source": "/checkout",
+      "destination": "/checkout_process_page/code.html"
+    },
+    {
+      "source": "/orders",
+      "destination": "/order_track_page/code.html"
     }
   ],
   "headers": [
